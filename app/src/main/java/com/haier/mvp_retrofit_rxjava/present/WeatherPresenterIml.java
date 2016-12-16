@@ -27,7 +27,7 @@ public class WeatherPresenterIml extends BasePresenter<WeatherView> implements W
                 .subscribe(new Subscriber<MainModel>() {
                     @Override
                     public void onCompleted() {
-
+                        WeatherPresenterIml.this.mCompositeSubscription.remove(this);
                     }
 
                     @Override

@@ -30,7 +30,7 @@ public class WeatherActivity extends Activity implements WeatherView, View.OnCli
     }
 
     @Override
-    public void getDataSuccess(MainModel model) {
+        public void getDataSuccess(MainModel model) {
         text.setText(model.getWeatherinfo().getTemp());
     }
 
@@ -54,5 +54,11 @@ public class WeatherActivity extends Activity implements WeatherView, View.OnCli
                 weatherPresenterIml.getWeather(HttpConstant.WEATHER_HOST, "101310222");
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        weatherPresenterIml.detachView();
     }
 }
